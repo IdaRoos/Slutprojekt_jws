@@ -37,7 +37,7 @@ public class Client {
 
                 System.out.println("Ange en siffra för att välja alternativ i menyn:");
                 JSONParser parser = new JSONParser();
-                // Steg 1. Skriv ut en meny för användaren
+                // Skriv ut en meny för användaren
                 System.out.println("1. Hämta data om alla personer");
                 System.out.println("2. Lägg till ny person");
                 System.out.println("3. Hämta data om specifik person");
@@ -61,7 +61,6 @@ public class Client {
 
                 //Kollar om response lyckas
                 if ("200".equals(serverResponse.get("httpStatusCode").toString())) {
-                    System.out.println(serverResponse.toJSONString());
 
                 } else if ("404".equals(serverResponse.get("httpStatusCode").toString())) {
                     System.out.println(serverResponse.toJSONString());
@@ -107,8 +106,8 @@ public class Client {
                 JSONObject jsonReturn = new JSONObject();
                 jsonReturn.put("httpURL", "persons");
                 jsonReturn.put("httpMethod", "get");
-                System.out.println(jsonReturn);
-//
+
+
                 //Stringifiera objektet och returnera det.
                 return jsonReturn.toJSONString();
 
@@ -147,7 +146,7 @@ public class Client {
 
 
                 // Skriv ut JSON-objektet.
-                System.out.println("Sent data: " + jsonReturn.toJSONString());
+                System.out.println("Personen har lagts till.");
 
 
                 // Returnera JSON-objektet.
@@ -155,7 +154,7 @@ public class Client {
 
             }
             case "3": {
-                // Send GET request to server to get a specific person
+                // SKicka GET request till servern för att få en specifik person
                 System.out.print("Enter person id: ");
                 String getId = scan.nextLine();
                 JSONObject jsonReturn = new JSONObject();
